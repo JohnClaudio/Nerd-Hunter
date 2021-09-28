@@ -17,19 +17,21 @@ public class Postagem {
     @Size(min = 5 , max=100)
     private String titulo;
 
-    @NotNull
+    @NotNull(message="o campo texto nao pode ser nulo")
     @Size(min = 5, max = 600, message =" o campo deste atributo não pode ser menor que 10 e maior que 600 caracteres")
     private String texto;
 
-    @NotNull
+
+    @NotNull(message="O CAMPO TEMA NAO PODE SER NULO")
     @ManyToOne
     @JoinColumn(name ="id_tema")
     private Tema id_tema;
 
-    @NotNull
+    @NotNull(message="O CAMPO USUARIO NAO PODE SER NULO")
     @ManyToOne
     @JoinColumn(name ="id_usuario")
     private Usuario id_usuario;
+
 
 
 
@@ -59,5 +61,29 @@ public class Postagem {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Tema getId_tema() {
+        return id_tema;
+    }
+
+    public void setId_tema(Tema id_tema) {
+        this.id_tema = id_tema;
+    }
+
+    public Usuario getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(Usuario id_usuario) {
+        this.id_usuario = id_usuario;
     }
 }

@@ -1,8 +1,11 @@
 package com.blogpessoal.blogpessoal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 
 @Entity
@@ -14,14 +17,15 @@ public class Usuario {
     long id_usuario;
 
     @NotNull(message="O nome do usuario não pode ser nulo")
-    String nome ;
+    String nome;
 
     @NotNull(message="O nome do usuario não pode ser nulo")
     @Size(min = 5, max=70, message= "O campo nome não pode ultrapassar 70 caracteres e min 5")
-    String usuario ;
+    String usuario;
 
     @NotNull(message="O nome do usuario não pode ser nulo")
     String senha ;
+
 
     public long getUsuario_id() {
         return id_usuario;
