@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
+
 @Table(name = "tb_postagens")
 public class Postagem {
     @Id
@@ -17,16 +18,18 @@ public class Postagem {
     private String titulo;
 
     @NotNull
-    @Size(min = 10, max = 600, message =" o campo deste atributo não pode ser menor que 10 e maior que 600 caracteres")
+    @Size(min = 5, max = 600, message =" o campo deste atributo não pode ser menor que 10 e maior que 600 caracteres")
     private String texto;
 
     @NotNull
     @ManyToOne
-    private long id_tema;
+    @JoinColumn(name ="id_tema")
+    private Tema id_tema;
 
     @NotNull
     @ManyToOne
-    private long id_usuario;
+    @JoinColumn(name ="id_usuario")
+    private Usuario id_usuario;
 
 
 
