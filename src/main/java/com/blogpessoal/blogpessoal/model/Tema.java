@@ -1,12 +1,16 @@
 package com.blogpessoal.blogpessoal.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "tb_temas")
 public class Tema {
 
@@ -22,23 +26,4 @@ public class Tema {
     List<Postagem> postagens;
 
 
-    public long getId_tema() {
-        return id_tema;
-    }
-
-    public void setId_tema(long id_tema) {
-        this.id_tema = id_tema;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    /*public List<Postagem> getPostagens() {
-        return postagens;
-    }*/
 }
