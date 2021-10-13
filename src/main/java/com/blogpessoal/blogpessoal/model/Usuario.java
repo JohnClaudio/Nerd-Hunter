@@ -1,14 +1,17 @@
 package com.blogpessoal.blogpessoal.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
+
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "tb_usuarios")
 public class Usuario {
 
@@ -25,4 +28,43 @@ public class Usuario {
 
     @NotBlank(message="A senha não pode ser nulo nem vazia")
     String senha ;
+
+    public Usuario(long id_usuario, String nome, String usuario, String senha) {
+        this.id_usuario = id_usuario;
+        this.nome = nome;
+        this.usuario = usuario;
+        this.senha = senha;
+    }
+
+    public long getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(long id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }

@@ -1,8 +1,8 @@
 package com.blogpessoal.blogpessoal.controller;
 
+import com.blogpessoal.blogpessoal.model.Postagem;
 import com.blogpessoal.blogpessoal.model.Usuario;
 import com.blogpessoal.blogpessoal.model.UsuarioLogin;
-import com.blogpessoal.blogpessoal.repository.UsuarioRepository;
 import com.blogpessoal.blogpessoal.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,6 +37,21 @@ public class UsuarioController {
         return usuarioService.cadastrarUsuario(usuario)
                 .map(respostaCadastro -> ResponseEntity.status(HttpStatus.CREATED).body(respostaCadastro))
                 .orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+
+    }
+
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Usuario>> getAll()
+    {
+        List<Usuario> list = usuarioService.findAll();
+        return ResponseEntity.ok(list);
+    }
+
+    @PutMapping("/atualizar")
+    public ResponseEntity<Usuario> update (@RequestBody Usuario usuario)
+    {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.update(usuario));
 
     }
 

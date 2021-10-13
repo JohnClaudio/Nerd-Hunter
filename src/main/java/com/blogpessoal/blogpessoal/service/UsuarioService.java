@@ -1,5 +1,6 @@
 package com.blogpessoal.blogpessoal.service;
 
+import com.blogpessoal.blogpessoal.model.Postagem;
 import com.blogpessoal.blogpessoal.model.Usuario;
 import com.blogpessoal.blogpessoal.model.UsuarioLogin;
 import com.blogpessoal.blogpessoal.repository.UsuarioRepository;
@@ -22,6 +23,11 @@ public class UsuarioService {
     public List<Usuario> findAll(){
         return usuarioRepository.findAll();
     }
+    public Usuario update(Usuario usuario)
+    {
+        return usuarioRepository.save(usuario);
+    }
+
 
 
     public Optional<Usuario> cadastrarUsuario(Usuario usuario) {
@@ -64,4 +70,6 @@ public class UsuarioService {
         }
         return Optional.empty();
     }
+
+
 }

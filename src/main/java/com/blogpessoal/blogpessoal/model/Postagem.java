@@ -1,5 +1,6 @@
 package com.blogpessoal.blogpessoal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,11 +26,13 @@ public class Postagem {
     @Size(min = 5, max = 600, message =" o campo deste atributo não pode ser menor que 10 e maior que 600 caracteres")
     private String texto;
 
+
     @NotNull(message="O CAMPO TEMA NAO PODE SER NULO")
     @ManyToOne
     @JoinColumn(name ="id_tema")
     private Tema id_tema;
 
+    @JsonIgnoreProperties("usuario")
     @NotNull(message="O CAMPO USUARIO NAO PODE SER NULO")
     @ManyToOne
     @JoinColumn(name ="id_usuario")

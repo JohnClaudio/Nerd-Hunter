@@ -74,41 +74,22 @@ public class UserDetailsImpl implements UserDetails {
 		return userName;
 	}
 
-	/**
-	 *  Sobrecarrega (@Override) o método que Indica se a conta do usuário 
-	 *  expirou.
-	 */
+
 
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;
 	}
 
-	/**
-	 *  Sobrecarrega (@Override) o método que Indica se o usuário 
-	 *  está bloqueado ou desbloqueado.
-	 */
-
 	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
 
-	/**
-	 *  Sobrecarrega (@Override) o método que indica se as 
-	 *  credenciais do usuário (senha) expiraram.  
-	 */
-	
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
-
-	/**
-	 *  Sobrecarrega (@Override) o método que Indica se o usuário 
-	 *  está habilitado ou desabilitado.
-	 *  Se mudar para false nenhum usuário conseguirá logar.
-	 */
 
 	@Override
 	public boolean isEnabled() {
