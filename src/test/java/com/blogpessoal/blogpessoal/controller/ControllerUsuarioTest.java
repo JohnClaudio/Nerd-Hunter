@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+
 public class ControllerUsuarioTest {
 
         @Autowired
@@ -32,15 +33,14 @@ public class ControllerUsuarioTest {
         @BeforeAll
         public void start() {
 
-            usuarioAdmin = new Usuario(0, "Administrador", "admin@email.com.br", "admin123");
-
+            this.usuarioAdmin = new Usuario(9, "Administrador", "admin@email.com.br", "admin123");
             if(!usuarioRepository.findByUsuario(usuarioAdmin.getUsuario()).isPresent()) {
                 HttpEntity<Usuario> request = new HttpEntity<Usuario>(usuarioAdmin);
                 testRestTemplate.exchange("/usuarios/cadastrar", HttpMethod.POST, request, Usuario.class);
             }
 
-            usuario = new Usuario(0, "Paulo Antunes", "paulo@email.com.br", "13465278");
-            usuarioUpdate = new Usuario(0, "Carlos Antunes de Souza", "paulo_souza@email.com.br", "souza123");
+            this.usuario = new Usuario(0L, "Paulo Antunes", "paulo@email.com.br", "13465278");
+            usuarioUpdate = new Usuario(0L, "Carlos Antunes de Souza", "paulo_souza@email.com.br", "souza123");
         }
 
         @Test
@@ -49,12 +49,15 @@ public class ControllerUsuarioTest {
         public void deveRealizarPostUsuario() {
 
             HttpEntity<Usuario> request = new HttpEntity<Usuario>(usuario);
-            ResponseEntity<Usuario> resposta = testRestTemplate
-                    .exchange("/usuarios/cadastrar", HttpMethod.POST, request, Usuario.class);
+
+            ResponseEntity<Usuario> resposta = testRestTemplate.exchange("/usuarios/cadastrar", HttpMethod.POST, request,
+                    Usuario.class);
 
             assertEquals(HttpStatus.CREATED, resposta.getStatusCode());
 
         }
+
+
 
         @Test
         @Order(2)

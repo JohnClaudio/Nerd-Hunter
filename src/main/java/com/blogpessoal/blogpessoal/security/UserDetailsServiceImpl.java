@@ -1,7 +1,6 @@
 package com.blogpessoal.blogpessoal.security;
 import java.util.Optional;
 
-import com.blogpessoal.blogpessoal.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
