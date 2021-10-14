@@ -45,7 +45,7 @@ public class TemaController {
     @PutMapping()
     public ResponseEntity<Tema> update (@RequestBody Tema Tema)
     {
-        return ResponseEntity.status(HttpStatus.OK).body(TemaService.insert(Tema));
+        return ResponseEntity.status(HttpStatus.OK).body(service.insert(Tema));
 
     }
 }
