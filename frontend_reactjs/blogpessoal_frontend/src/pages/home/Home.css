@@ -1,0 +1,11 @@
+.imagem{
+    height: 30vh;
+    width: 30vw;
+    display: block;
+    margin:auto;
+}
+h1{
+    color: blue;
+    text-align: center;
+    margin:auto;
+}
