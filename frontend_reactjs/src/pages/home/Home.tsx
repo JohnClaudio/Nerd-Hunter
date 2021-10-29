@@ -1,4 +1,4 @@
-import { Grid, Box, Typography, Button} from '@material-ui/core';
+import { Grid, Box, Typography, Button} from '@mui/material';
 import React from 'react';
 import './Home.css'
 
@@ -22,7 +22,7 @@ const Home = () =>{
             </Grid>
 
             <Grid item xs={12} md={6}>
-                <img className="imagem"src="https://i.imgur.com/H88yIo2.png" alt="" />
+                <img className="home"src="https://i.imgur.com/H88yIo2.png" alt="" />
             </Grid>
             <Grid xs={12} style={{ backgroundColor: "white" }}>
             </Grid>
