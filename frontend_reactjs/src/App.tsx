@@ -2,6 +2,7 @@ import Home from './pages/home/Home';
 import Navbar from './components/estaticos/NavBar/Navbar'
 import Footer from './components/estaticos/Footer/Footer'
 import Login from './pages/login/Login'
+import CadastrarUsuario from './pages/cadastrarUsuario/CadastrarUsuario'
 import './App.css'
 import { createTheme, ThemeProvider } from '@mui/material'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -35,10 +36,15 @@ function App() {
               <Login />
          
             </Route>
+            <Route path='/cadastrarUsuario'>
+              <CadastrarUsuario />
+         
+            </Route>
 
             <Route path='/home'>
               <Navbar />
               <Home />
+
               <Footer />
             </Route>
                     </div>
