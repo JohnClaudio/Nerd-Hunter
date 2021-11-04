@@ -22,37 +22,30 @@ function App() {
     return (
 
         <ThemeProvider theme={theme}>
-            <Router>
-                
+       <Router>
+      <Navbar />
+        <Switch>
+          <div style={{minHeight: '100vh'}}>
 
-                <Switch>
-                    <div >
-                    <Route exact path='/'>
+            <Route exact path='/'>
               <Login />
-              
             </Route>
 
             <Route path='/login'>
               <Login />
-         
-            </Route>
-            <Route path='/cadastrarUsuario'>
-              <CadastrarUsuario />
-         
             </Route>
 
             <Route path='/home'>
-              <Navbar />
               <Home />
-
-              <Footer />
             </Route>
-                    </div>
-                </Switch>
-
-             
-
-            </Router>
+            
+            <Route path='/cadastrousuario'>
+              <CadastrarUsuario />
+            </Route>
+          </div>
+        </Switch>
+      <Footer />
+    </Router>
         </ThemeProvider>
  
 );
