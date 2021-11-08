@@ -1,6 +1,8 @@
 import Home from './pages/home/Home';
 import Navbar from './components/estaticos/NavBar/Navbar'
 import Footer from './components/estaticos/Footer/Footer'
+import ListaPostagem from './components/estaticos/postagem/ListaPostagem'
+import ListaTema from './components/estaticos/tema/ListaTema'
 import Login from './pages/login/Login'
 import CadastrarUsuario from './pages/cadastrarUsuario/CadastrarUsuario'
 import './App.css'
@@ -42,6 +44,14 @@ function App() {
             <Route path='/cadastrousuario'>
               <CadastrarUsuario />
             </Route>
+
+            <Route path='/temas'>
+            <ListaTema />
+          </Route>
+
+          <Route path='/posts'>
+            <ListaPostagem />
+          </Route>
           </div>
         </Switch>
       <Footer />
