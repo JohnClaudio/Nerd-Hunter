@@ -2,6 +2,16 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, Box } from '@mui/material';
 
 function Navbar() {
+
+    const [token, setToken] = useLocalStorage('token');
+    let history = useHistory();
+
+    function Lougout() {
+        setToken('');
+        history.push('/Login');
+        alert('Usuario delogado com sucesso')
+    }
+    
     return (
         <>
             <AppBar position="static" style={{ backgroundColor: "#3F51B5" }}>
